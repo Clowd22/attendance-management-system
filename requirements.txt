@@ -49,6 +49,9 @@ python-dateutil>=2.9
 # pytest: 自動テスト。各層の検証を `pytest tests/` で一括実行する。
 pytest>=8.0
 
+# httpx2: FastAPI の TestClient が依存（統合テストで使用）。
+httpx2>=2.0
+
 # --- セッション署名 ----------------------------------------------------------
 # Starlette の SessionMiddleware（署名付きクッキー）が依存するライブラリ。
 # これが無いと import 時に ModuleNotFoundError になる。
