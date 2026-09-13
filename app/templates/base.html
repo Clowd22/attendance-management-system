@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}勤怠管理システム{% endblock %}</title>
+    <style>
+        /* 最小限のスタイル（本格的な見た目は Phase 1 で整備する） */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            padding: 20px;
+            font-size: 12px;
+        }
+
+        .error {
+            color: #c0392b;
+            background: #fdecea;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 420px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        input {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            max-width: 280px;
+        }
+
+        button {
+            padding: 8px 28px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>勤怠管理システム</h1>
+        {# ログイン中（current_user が渡されている）ならログアウトリンクを表示 #}
+        {% if current_user %}
+        <a href="/logout">ログアウト</a>
+        {% endif %}
+    </header>
+
+    <main>
+        {# 各画面の中身はここに差し込まれる #}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>v0.1</footer>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{# base.html を継承して、content の中身だけを定義する #}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>ログイン</h2>
+
+    {# 認証エラーがあれば赤いメッセージを表示 #}
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {# action を明示してログイン処理（POST）へ送る #}
+    <form method="post" action="/login">
+        <label>社員番号
+            <input type="text" name="employee_number" maxlength="20" autofocus>
+        </label>
+        <label>パスワード
+            <input type="password" name="password" autocomplete="current-password">
+        </label>
+        <button type="submit">ログイン</button>
+    </form>
+</div>
+{% endblock %}

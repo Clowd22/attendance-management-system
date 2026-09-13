@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>ホーム</h2>
+<p>こんにちは、<strong>{{ current_user.full_name }}</strong> さん</p>
+<p>所属: {{ current_user.department.name }}</p>
+<p>ロール:
+    {% if current_user.is_admin() %}管理者{% else %}一般社員{% endif %}
+</p>
+<p class="muted">（打刻ボタン・月次サマリは Phase 2 以降で追加します）</p>
+{% endblock %}
